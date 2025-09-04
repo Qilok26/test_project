@@ -12,17 +12,18 @@
 # First attempt: copy-paste code for each rectangle.
 width1 = 5
 height1 = 10
-print(f"Rectangle 1 area: {width1 + height1}")
+print(f"Rectangle 1 area: {width1 * height1}")
 
 width2 = 3
 height2 = 7
-print(f"Rectangle 2 area: {width2 + height2}")
+print(f"Rectangle 2 area: {width2 * height2}")
 
 width3 = 9
 height3 = 2
-print(f"Rectangle 3 area: {width3 + height3}")
+print(f"Rectangle 3 area: {width3 * height3}")
 
 # Problem: What if you realize you wrote the wrong formula?
+# I need to multiply
 # You’d have to go fix it in EVERY place.
 
 # Task: Find the bug and make sure to fix it in every place.
@@ -36,16 +37,6 @@ print(f"Rectangle 3 area: {width3 + height3}")
 # and it can send back an output value (called a RETURN VALUE).
 
 def area_of_rectangle(width: int, height: int) -> int:
-    """
-    Calculate the area of a rectangle.
-
-    Parameters:
-        width (int): how wide the rectangle is
-        height (int): how tall the rectangle is
-
-    Returns:
-        int: the area of the rectangle (width * height)
-    """
     return width * height
 
 print(f"Rectangle 1 area: {area_of_rectangle(5, 10)}")
@@ -54,18 +45,13 @@ print(f"Rectangle 3 area: {area_of_rectangle(9, 2)}")
 
 # Challenge: Add a new function area_of_circle(radius) with proper docstring.
 
+def area_of_circle(radius: int) -> int:
+    return radius^2*3.14
+
+
 
 # Example function WITHOUT a return value
 def print_welcome_message(student_name: str) -> None:
-    """
-    Print a welcome message for a student.
-
-    Parameters:
-        student_name (str): the name of the student to welcome
-
-    Returns:
-        None
-    """
     print(f"Welcome to class, {student_name}! We are glad you are here.")
 
 print_welcome_message("Jordan")
@@ -83,34 +69,14 @@ print_welcome_message("Taylor")
 # That’s where classes come in.
 
 class Rectangle:
-    """
-    A rectangle shape defined by width and height.
-
-    Attributes:
-        width (int): how wide the rectangle is
-        height (int): how tall the rectangle is
-    """
-
     def __init__(self, width: int, height: int):
         self.width = width
         self.height = height
 
     def area(self) -> int:
-        """
-        Compute the area of this rectangle.
-
-        Returns:
-            int: the area (width * height)
-        """
         return self.width * self.height
 
     def describe(self) -> None:
-        """
-        Print a description of the rectangle.
-
-        Returns:
-            None
-        """
         print(f"Rectangle {self.width} by {self.height} has area {self.area()}")
 
 # Using the class:
@@ -121,6 +87,7 @@ r2.describe()
 
 # ⚠️ Challenge: Introduce a bug by returning width + height instead of width * height.
 # Then fix it ONCE and see that all rectangles are correct again.
+# Yes, much more easier to cause errors
 
 
 # 4. DOCUMENTATION MATTERS

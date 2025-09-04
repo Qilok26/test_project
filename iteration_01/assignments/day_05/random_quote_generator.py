@@ -1,3 +1,5 @@
+import random
+import os
 # Starter file for students to create a Random Quote Generator
 
 # Step 1: Import any necessary modules
@@ -7,15 +9,18 @@
 
 # Functions takes in filename parameter and returns list of strings with lines from file
 def load_quotes(filename):
-    return None
+    with open(filename, 'r') as file:
+        quotes = file.readlines()
+    return quotes
 
 # Function takes in list of strings and randomly chooses one to return
 def get_random_quote(quotes):
-    return None
+    random_num=random.randint(0,len(quotes)-1)
+    return quotes[random_num].strip()
 
 # Runs program. Main() is the only function called so that it calls the other functions appropriately and controls logic flow.
 def main():
-    return None 
+    print(get_random_quote(load_quotes("quotes.txt")))
 
 main()
 

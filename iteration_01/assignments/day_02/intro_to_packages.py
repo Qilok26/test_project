@@ -22,7 +22,14 @@ with help(), and fill in the TODOs. Test your code after each level.
 
 import random
 # TODO: Generate and print 3 random integers between 1 and 10
-
+rand_list = ["wake up", "brush my teeth", "go to school", "eat lunch, go to bed"]
+rand1 = random.randrange(0,100)
+rand2 = random.shuffle(rand_list)
+rand3 = random.randrange(66,68)
+print(rand1)
+print(rand2)
+print("My daily routine: ", rand_list)
+print(rand3)
 
 # ---------------------------------------------------
 # Level 2 – Complex Numbers with cmath
@@ -34,6 +41,8 @@ import random
 
 import cmath
 # TODO: Print the square root of -1 using cmath
+cmath1 = cmath.sqrt(-1)
+print(cmath1)
 
 
 # ---------------------------------------------------
@@ -44,7 +53,7 @@ import cmath
 # ---------------------------------------------------
 
 # TODO: Ask for the user’s name and print a greeting
-
+name = input("Enter your name: ")
 
 # ---------------------------------------------------
 # Level 4 – Converting Input to Numbers
@@ -53,6 +62,9 @@ import cmath
 # 2. Convert it to an integer
 # 3. Multiply it by 2 and print the result
 # ---------------------------------------------------
+
+user_int = int(input("Enter an int: "))
+print(user_int*2)
 
 # TODO: Ask for a number, convert it to int, double it, and print
 
@@ -67,6 +79,11 @@ import cmath
 
 # TODO: Generate a random complex number with integer real and imaginary parts
 
+real_part = random.randint(-10, 10)
+imag_part = random.randint(-10, 10)
+
+z = complex(real_part, imag_part)
+print("The complex number is:", z)
 
 # ---------------------------------------------------
 # Level 6 – Complex Number Guesser Game
@@ -84,13 +101,33 @@ target_imag = random.randint(-5, 5)
 target = complex(target_real, target_imag)
 
 print("Welcome to the Complex Number Guesser Game!")
-print("I have chosen a complex number with real and imaginary parts between -5 and 5.")
+print("I have chosen a complex number with real and imaginary parts between -5 and 5. You have 4 attempts")
+num1 = 0
+num2 = 0
+counter=0
 
-# TODO: Write a loop where the user keeps guessing until correct
-# Hints:
-# - Ask separately for real and imaginary guesses
-# - Convert inputs to integers
-# - Use if/else to give “too high” / “too low” feedback
+while (num1 != target_real or num2 !=target_imag):
+    counter+=1
+    num1= int(input("Enter an real number: "))
+    num2= int(input("Enter an imag number without j: "))
+    if num1 != target_real:
+        if num1 > target_real:
+            print("The real number is smaller")
+        else:
+            print("The real number is greater")
+    if num2 != target_imag:
+        if num2 > target_imag:
+            print("The imag number is smaller")
+        else:
+            print("The imag number is greater")
+    if counter>3:
+        print("You ran out of tries. The answer for real number was: ", target_real, ". The img number was: ", target_imag, "j")
+        break
+    
+
+if counter<3:
+    print("Congradulations, you won! The answer for real number was: ", target_real, ". The img number was: ", target_imag, "j")
+
 
 
 # ---------------------------------------------------
