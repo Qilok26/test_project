@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Georgii",
+    "age": 17,
+    "languages": [
+      "English",
+      "Spanish"
+    ]
+  },
+  {
+    "name": "Michael",
+    "age": 72,
+    "languages": [
+      "Russian"
+    ]
+  },
+  {
+    "name": "Liam",
+    "age": 18,
+    "languages": [
+      "Learning Spanish"
+    ]
+  },
+  {
+    "name": "Ben",
+    "age": 18,
+    "languages": [
+      "SPanish"
+    ]
+  }
+]

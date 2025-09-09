@@ -11,21 +11,23 @@ Your job is to experiment, fill in blanks, and notice how conditionals change wh
 # Let's explore.
 
 # TODO: Create two variables. One that represents age, and the other a boolean that is True if you are a student and false if you are not:
-
+age = 30
+is_student = False
 
 # What happens when we compare numbers?
-print("Is age greater than 18?", )
-print("Is age less than 13?", )
+print("Is age greater than 18?", age > 18)
+print("Is age less than 13?", age < 13)
 
 # What happens when we compare equality?
-print("Is age exactly 16?", )
+print("Is age exactly 16?", age == 16)
 
 # What happens when we use a variable directly?
-print("Is student status True?", )
+print("Is student status True?", is_student)
 
 # Reflection Question (write your answer in a comment):
 # Q: Why do all of these print either True or False?
 
+# ANSWER: Boolean's are defined by a logical statement between somethings status as being True or False
 
 # --- Section 2: If Statements ---
 
@@ -34,21 +36,31 @@ print("Is student status True?", )
 
 print("You can vote!")   # TODO: What’s wrong with this approach?
 
+# ANSWER: It will always print that you can vote. Not based on age variable value.
+
 
 # Now add an IF statement:
-# if ___:
-#     print("You can vote!")
 
+if age >= 18:
+    print("You can vote!")
+else:
+    print("You are too young to vote")
 
 # --- Section 3: If/Else ---
+
+# Else statement also above
 
 # TODO: Write a program that checks if a number is even or odd.
 # Steps to guide you:
 # 1. Make a variable called num
+num = 21
 # 2. Use the modulo operator (%) to check if num % 2 == 0
+if num % 2 == 0:
 # 3. If even, print "Even number"
+    print("Even number")
 # 4. Otherwise, print "Odd number"
-
+else:
+    print("Odd number")
 
 # --- Section 4: If / Elif / Else ---
 
@@ -59,7 +71,20 @@ print("You can vote!")   # TODO: What’s wrong with this approach?
 #   - 60 or above → "D"
 #   - below 60   → "F"
 
-# Write this using if / elif / else statements.
+
+# Write this using if, elif, and else statements.
+grade = 82
+
+if grade >= 90:
+    print("A")
+elif grade >= 80:
+    print("B")
+elif grade >= 70:
+    print("C")
+elif grade >= 60:
+    print("D")
+else:
+    print("F")
 
 
 # --- Section 5: Nesting Conditionals ---
@@ -70,10 +95,24 @@ print("You can vote!")   # TODO: What’s wrong with this approach?
 # If both are true, print "You are a student and a minor."
 # Otherwise, print something else.
 
+is_student = False
+age = 17
+
+if is_student == True and age < 18:
+    print("You are a student and a minor")
+else:
+    print("You are either not a student, not a minor, or both...")
+    
+
 
 # --- Section 6: Reflection ---
 # Answer in comments:
 # 1. What does a conditional REQUIRE in order to run effectively?
-#    (Think: a test/condition that evaluates to True or False)
+    # ANSWER: it requires some logical statement that results in either a truth or a false status. Either with a boolean
+    # statement or a boolean variable.
 # 2. How do elif and else make your code shorter or more readable?
+    # Improves code readability with conditional logic. It is more efficient than using multiple independent if statements
+    # or deeply nested if-else blocks.
 # 3. Can you think of a situation in real life where you’d use multiple conditionals?
+    # If I am sick and if it is a week day then I need to call out of work. Otherwise, I won't need to call out of work at all.
+    # Since I will either not be sick, it will not be a weekday, or both simultenously, the else statement catches all those cases.
