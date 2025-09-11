@@ -1,0 +1,66 @@
+{
+  "name": "Spice of Nations",
+  "location": "1234 Maplewood St, Springfield IL",
+  "cuisine": "Indian and Pakistani",
+  "menu": [
+    {
+      "category": "Appetizer",
+      "id": 1,
+      "items": [
+        { "id": 1,  "name": "Samosas",              "price": 5.99, "calories": 320, "protein": 6,  "spice_lvl": 2, "in_stock": true  },
+        { "id": 2,  "name": "Paneer Tikka Skewers", "price": 7.99, "calories": 380, "protein": 14, "spice_lvl": 3, "in_stock": true  },
+        { "id": 3,  "name": "Chicken Malai Boti",   "price": 8.49, "calories": 420, "protein": 28, "spice_lvl": 2, "in_stock": true  },
+        { "id": 4,  "name": "Seekh Kebabs",         "price": 9.99, "calories": 500, "protein": 30, "spice_lvl": 4, "in_stock": true  },
+        { "id": 5,  "name": "Pakoras",              "price": 6.49, "calories": 350, "protein": 7,  "spice_lvl": 3, "in_stock": true  },
+        { "id": 6,  "name": "Aloo Chaat",           "price": 5.49, "calories": 280, "protein": 5,  "spice_lvl": 3, "in_stock": true  },
+        { "id": 7,  "name": "Shami Kebab",          "price": 8.49, "calories": 400, "protein": 25, "spice_lvl": 3, "in_stock": true  },
+        { "id": 8,  "name": "Dahi Puri",            "price": 6.99, "calories": 330, "protein": 8,  "spice_lvl": 2, "in_stock": false }
+      ]
+    },
+    {
+      "category": "Entree",
+      "id": 2,
+      "items": [
+        { "id": 9,  "name": "Chicken Biryani",      "price": 14.99, "calories": 750, "protein": 35, "spice_lvl": 4, "in_stock": true  },
+        { "id": 10, "name": "Mutton Karahi",        "price": 18.99, "calories": 820, "protein": 40, "spice_lvl": 4, "in_stock": true  },
+        { "id": 11, "name": "Butter Chicken",       "price": 15.99, "calories": 780, "protein": 32, "spice_lvl": 2, "in_stock": true  },
+        { "id": 12, "name": "Nihari",               "price": 17.99, "calories": 890, "protein": 42, "spice_lvl": 4, "in_stock": true  },
+        { "id": 13, "name": "Haleem",               "price": 13.99, "calories": 320, "protein": 6,  "spice_lvl": 2, "in_stock": true  },
+        { "id": 14, "name": "Palak Paneer",         "price": 12.99, "calories": 560, "protein": 20, "spice_lvl": 2, "in_stock": true  },
+        { "id": 15, "name": "Rogan Josh",           "price": 16.99, "calories": 770, "protein": 38, "spice_lvl": 4, "in_stock": true  },
+        { "id": 16, "name": "Dal Tadka",            "price": 14.99, "calories": 500, "protein": 18, "spice_lvl": 2, "in_stock": true  },
+        { "id": 17, "name": "Prawn Masala Curry",   "price": 16.49, "calories": 640, "protein": 34, "spice_lvl": 4, "in_stock": true  }
+      ]
+    },
+    {
+      "category": "Delectables",
+      "id": 3,
+      "items": [
+        { "id": 18, "name": "Lobster Biryani",          "price": 29.99, "calories": 900, "protein": 48, "spice_lvl": 4, "in_stock": true  },
+        { "id": 19, "name": "Truffle-Infused Naan",     "price": 12.99, "calories": 400, "protein": 9,  "spice_lvl": 1, "in_stock": true  },
+        { "id": 20, "name": "Saffron and Gold Leaf Kulfi","price": 14.99, "calories": 420, "protein": 8,  "spice_lvl": 1, "in_stock": true  },
+        { "id": 21, "name": "Edible Silver-Coated Jalebi","price": 15.49, "calories": 460, "protein": 5,  "spice_lvl": 1, "in_stock": false }
+      ]
+    },
+    {
+      "category": "Dessert",
+      "id": 4,
+      "items": [
+        { "id": 22, "name": "Gulab Jamun",   "price": 5.99, "calories": 300, "protein": 5, "spice_lvl": 1, "in_stock": false },
+        { "id": 23, "name": "Rasmalai",      "price": 6.49, "calories": 340, "protein": 10,"spice_lvl": 1, "in_stock": true  },
+        { "id": 24, "name": "Kheer",         "price": 4.99, "calories": 280, "protein": 6, "spice_lvl": 1, "in_stock": true  },
+        { "id": 25, "name": "Jalebi",        "price": 5.49, "calories": 350, "protein": 4, "spice_lvl": 1, "in_stock": false }
+      ]
+    },
+    {
+      "category": "Beverages",
+      "id": 5,
+      "items": [
+        { "id": 26, "name": "Mango Lassi",      "price": 4.99, "calories": 260, "protein": 8, "spice_lvl": 1, "in_stock": false },
+        { "id": 27, "name": "Masala Chai",      "price": 3.49, "calories": 150, "protein": 5, "spice_lvl": 1, "in_stock": true  },
+        { "id": 28, "name": "Rooh Afza Cooler", "price": 3.99, "calories": 180, "protein": 0, "spice_lvl": 1, "in_stock": true  },
+        { "id": 29, "name": "Water",            "price": 1.49, "calories": 0,   "protein": 0, "spice_lvl": 1, "in_stock": true  }
+      ]
+    }
+  ]
+}
