@@ -101,28 +101,31 @@ def main():
                 print("Item not found.")
         
         elif choice == "6":
-            sort_by = get_valid_input("Sort by (name/price/in_stock): ", lambda x: x in ["name", "price", "in_stock"])
-            reverse = get_valid_input("Order (asc/desc): ", lambda x: x in ["asc", "desc"]) == "desc"
+            sort_by = get_valid_input("Sort by (name/price/availability): ",
+                                    lambda x: x in ["name", "price", "availability"])
+            reverse = get_valid_input("Order (asc/desc): ",
+                                    lambda x: x in ["asc", "desc"]) == "desc"
             items = restaurant.sort_items(sort_by, reverse=reverse)
+
             if items:
-                print("Sorted Menu Items:")
+                print("\nSorted Menu Items:")
                 for item in items:
-                    print("{0}: {1} ({2}) - ${3:.2f} {4}".format(item.id, item.name, item.category, item.price, '(In Stock)' if item.in_stock else '(Out of Stock)'))
+                    print("{0}: {1} ({2}) - ${3:.2f} {4}".format(
+                        item.id, item.name, item.category, item.price,
+                        '(In Stock)' if item.in_stock else '(Out of Stock)'))
             else:
                 print("No items found.")
-        
+                
         elif choice == "7":
             items = restaurant.list_items()
             if items:
                 fields = input("Fields to export (id,name,category,price,in_stock,comma-separated): ").split(",")
-                valid_fields = [f for f in fields if f in ["id", "name", "category", "price", "in_stock"]]
-                if valid_fields:
-                    with open("export.txt", "w") as f:
-                        for item in items:
-                            f.write(",".join(str(getattr(item, field)) for field in valid_fields) + "\n")
-                    print("Exported to export.txt")
-                else:
-                    print("No valid fields selected.")
+                filename = input("Enter filename (default: export.csv): ").strip() or "export.csv"
+                try:
+                    restaurant.export_items(items, fields, filename)
+                    print(f"Exported to {filename}")
+                except ValueError as e:
+                    print(e)
             else:
                 print("No items to export.")
         

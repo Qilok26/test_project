@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page for Random Info on Cats and Laughs</title>
+</head>
+<body>
+    <h1>Welcome to My Flask App</h1>
+    <p>
+        This is my app about cats and laughs... What would you like do choose?
+    </p>
+    <a href="/joke"><button>Go to Joke</button></a><br>
+    <button id='jokes'>Go to Jokes</button><br>
+
+    <div id="jokes_num_container" style="display:none">
+        <form id="joke_form" action="/jokes" method="get">
+            <label for="joke_count">How many jokes would you like to see?:</label>
+            <input type="number" id="joke_count" name="joke_count" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <a href="/catfact"><button>Go to Cat Fact</button></a><br>
+    <button id='cat_breeds'>Go to Cat Breeds</button><br>
+    <div id="cat_breeds_container" style="display:none">
+        <form id="cat_breeds_form" action="/catbreeds" method="get">
+            <label for="cat_breeds">How many cat breeds would you like to see?:</label>
+            <input type="number" id="cat_breeds_count" name="cat_breeds_count" required>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const joke_button = document.getElementById('jokes');
+        const cat_breeds_button = document.getElementById('cat_breeds');
+        const joke_inputDiv = document.getElementById('jokes_num_container');
+        const cat_breeds_inputDiv = document.getElementById('cat_breeds_container');
+        joke_button.addEventListener('click', () => {
+            joke_inputDiv.style.display = 'block';
+        });
+        cat_breeds_button.addEventListener('click', () => {
+            cat_breeds_inputDiv.style.display = 'block';
+        });
+    </script>
+
+</body>
+</html>

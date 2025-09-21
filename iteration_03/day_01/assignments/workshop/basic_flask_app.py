@@ -18,9 +18,9 @@ def home():
     return html_content # What you return is what you see in the page. Should always be some HTML content
 
 # # Second Route gets cat fact
-@app.route("/catfact")
-def cat_fact(): 
-    pass
+# @app.route("/catfact")
+# def cat_fact():
+#     pass
 
 # # Third Route Utilizes Query params for limit of number of cat breed info
 # @app.route("/catbreeds")

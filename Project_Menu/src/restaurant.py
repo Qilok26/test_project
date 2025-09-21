@@ -1,7 +1,9 @@
 from pathlib import Path
 import json
+import csv
 from typing import Optional, Dict, List
 from menu_item import MenuItem
+
 
 
 class Restaurant:
@@ -72,28 +74,39 @@ class Restaurant:
 
     # -------- basic access --------
     def list_items(self) -> List[MenuItem]:
-        return list(self._items_by_id.values())
+        return sorted(self._items_by_id.values(), key=lambda x: x.id)
+
 
     def get_item(self, id: int) -> Optional[MenuItem]:
         return self._items_by_id.get(int(id))
 
     # -------- CRUD --------
-    def add_item(self, item: MenuItem) -> bool:
-        iid = int(item.id)
-        if iid in self._items_by_id:
-            return False
-        self._items_by_id[iid] = item
-        return True
+    def add_item(self, name: str, category: str, price: float, in_stock: bool):
+        if not name.strip():
+            raise ValueError("Item name cannot be empty")
+        if not category.strip():
+            raise ValueError("Category cannot be empty")
+        if price <= 0:
+            raise ValueError("Price must be greater than 0")
 
-    def update_item(self, id: int, field: str, value) -> bool:
-        it = self.get_item(id)
-        if not it:
-            return False
-        it.update(field, value)
-        return True
+        new_id = max(self._items_by_id.keys(), default=0) + 1
+        item = MenuItem(new_id, name, category, price, in_stock)
+        self._items_by_id[new_id] = item
+        return item
 
-    def delete_item(self, id: int) -> bool:
-        return self._items_by_id.pop(int(id), None) is not None
+    def update_item(self, item_id: int, **kwargs):
+        if item_id not in self._items_by_id:
+            raise ValueError(f"Item with ID {item_id} does not exist")
+        item = self._items_by_id[item_id]
+        for key, value in kwargs.items():
+            if value is not None:
+                setattr(item, key, value)
+        return item
+
+    def delete_item(self, item_id: int):
+        if item_id not in self._items_by_id:
+            raise ValueError(f"Item with ID {item_id} does not exist")
+        del self._items_by_id[item_id]
 
     # -------- search --------
     def search_by_id(self, id: int) -> Optional[MenuItem]:
@@ -106,10 +119,29 @@ class Restaurant:
     def search_by_category(self, category: str) -> List[MenuItem]:
         q = category.strip().lower()
         return [it for it in self._items_by_id.values() if it.category.lower() == q]
-    #Added sort items
-    def sort_items(self, criteria: str, reverse: bool = False) -> List[MenuItem]:
-        if criteria not in ["name", "price", "in_stock"]:
-            print(f"Invalid sort criteria: {criteria}")
-            return self.list_items()
-        return sorted(self._items_by_id.values(), key=lambda x: getattr(x, criteria), reverse=reverse)
+    
+    #Added better sorting here
+    def sort_items(self, sort_by: str, reverse: bool = False):
+        if sort_by == "name":
+            return sorted(self._items_by_id.values(), key=lambda x: x.name.lower(), reverse=reverse)
+        elif sort_by == "price":
+            return sorted(self._items_by_id.values(), key=lambda x: x.price, reverse=reverse)
+        elif sort_by == "availability":
+            return sorted(self._items_by_id.values(), key=lambda x: x.in_stock, reverse=reverse)
+        else:
+            return []
+        
+    #Added export items, for the advanced
+    def export_items(self, items, fields, filename="export.csv"):
+        valid_fields = [f for f in fields if f in ["id", "name", "category", "price", "in_stock"]]
+        if not valid_fields:
+            raise ValueError("No valid fields selected")
+
+        with open(filename, "w", newline="", encoding="utf-8") as f:
+            writer = csv.writer(f)
+            writer.writerow(valid_fields)  
+            for item in items:
+                writer.writerow([getattr(item, f) for f in valid_fields])
+
+
 
