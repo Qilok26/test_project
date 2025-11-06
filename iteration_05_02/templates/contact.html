@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+<div class="text-center p-6">
+    <h1 class="text-4xl font-bold text-blue-700 mb-6">Contact Me</h1>
+
+    <div class="flex justify-center gap-6 flex-wrap">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+            <h2 class="font-semibold text-lg mb-2 text-gray-700">Email</h2>
+            <p>{{ contacts.email }}</p>
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+            <h2 class="font-semibold text-lg mb-2 text-gray-700">GitHub</h2>
+            <a href="{{ contacts.github }}" class="text-blue-600 hover:underline">{{ contacts.github }}</a>
+        </div>
+
+        {% if contacts.twitter %}
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+            <h2 class="font-semibold text-lg mb-2 text-gray-700">Twitter</h2>
+            <a href="{{ contacts.twitter }}" class="text-blue-600 hover:underline">{{ contacts.twitter }}</a>
+        </div>
+        {% else %}
+        <div class="text-red-500 font-semibold mt-4">Twitter(X) handle not available.</div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
